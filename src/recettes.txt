@@ -1,0 +1,2 @@
+[Tarte aux pommes; 4; [Fruit, Dessert]; "Utiliser des pommes"]
+[Raclette; 2; [Fromage, Plat]; "Utiliser des patates et du fromage"]
