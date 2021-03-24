@@ -30,6 +30,7 @@ public class MenuSelector extends Panel {
 		Panel NORTH = new Panel();
 		// debut contenu du haut de la page...
 		
+		NORTH.setBackground(Color.CYAN);
 		
 		// ...fin contenu du haut de la page.
 		NORTH.setPreferredSize(new Dimension(0, 50));
@@ -40,22 +41,20 @@ public class MenuSelector extends Panel {
 		CENTER.setLayout(new GridLayout(10, 1));
 		// debut contenu du centre de la page...
 		
-		int j = 0; // A SUPPRIMER APRES TEST
+
 		for(Panel menu : menus) {
-			final int index = j; // A SUPPRIMER APRES TEST
+
 			
 			menu = new Panel();
 			menu.setLayout(new BorderLayout());
 			
 			Panel menu_WEST = new Panel();
-			menu_WEST.setBackground(Color.MAGENTA); // A SUPPRIMER APRES TEST
 			menu_WEST.setLayout(new BorderLayout());
 			
 			Canvas menu_WEST_canvas = new Canvas() {
 				public void paint(Graphics g) {
-					//g.drawString("image " + String.valueOf(index), 20, 20); // A SUPPRIMER APRES TEST
 					try {
-						g.drawImage(ImageIO.read(new File("images/pdf.png")), 0, 0, this.getWidth(), this.getHeight(), this);
+						g.drawImage(ImageIO.read(new File("images/pdf.png")), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
 					} catch (IOException e) {
 						System.out.println("marche pas");
 					}
@@ -69,21 +68,44 @@ public class MenuSelector extends Panel {
 			
 			
 			Panel menu_EAST = new Panel();
-			
-			menu_EAST.setBackground(Color.CYAN); // A SUPPRIMER APRES TEST
 			menu_EAST.setLayout(new BorderLayout());
-			Canvas menu_EAST_canvas = new Canvas() {
-				public void paint(Graphics g) {
-					g.drawString("texte inutile " + String.valueOf(index), 20, 20);
-				}
-			};
-			menu_EAST.add(menu_EAST_canvas, BorderLayout.CENTER);
+			
+			Panel menu_EAST_NORTH = new Panel();
+			menu_EAST_NORTH.setLayout(new BorderLayout());
+			
+			Panel menu_EAST_NORTH_EAST = new Panel();
+			
+			
+			Panel menu_EAST_NORTH_WEST = new Panel();
+				menu_EAST_NORTH_WEST.setLayout(new BorderLayout());
+				// debut de l'affichage du titre de la recette..
+				
+				Canvas recipe_title = new Canvas() {
+					public void paint(Graphics g) {
+						g.setColor(Color.BLACK);
+						
+						g.drawString("TITRE DE LA RECETTE", 10, 15);
+					}
+				};
+				menu_EAST_NORTH_WEST.add(recipe_title, BorderLayout.CENTER);
+				// ..fin de l'affichage du titre de la recette
+			menu_EAST_NORTH.add(menu_EAST_NORTH_WEST, BorderLayout.CENTER);
+			
+			menu_EAST_NORTH.setPreferredSize(new Dimension(0, 20));
+			
+			menu_EAST.add(menu_EAST_NORTH, BorderLayout.NORTH);
+			
+			
+			Panel menu_EAST_SOUTH = new Panel();
+			menu_EAST_SOUTH.setBackground(Color.pink);
+			
+			menu_EAST.add(menu_EAST_SOUTH, BorderLayout.CENTER);
 			
 			menu.add(menu_EAST, BorderLayout.CENTER);
 			
 			CENTER.add(menu);
 			
-			j++; // A SUPPRIMER APRES TEST
+
 		}
 		
 		// ...fin contenu du centre de la page.
@@ -94,10 +116,11 @@ public class MenuSelector extends Panel {
 		String[] names = {"debut", "precedent", "suivant", "fin"};
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i] = new Button(names[i]);
+			final int index = i;
 			buttons[i].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					System.out.println("ah, quelqu'un a appuye sur un bouton");
+					System.out.println("ah, quelqu'un a appuye sur un bouton " + String.valueOf(index));
 					// ici l'event des boutons en bas de l'affichage
 				}
 			});
