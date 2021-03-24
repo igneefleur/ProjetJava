@@ -5,6 +5,11 @@ import java.awt.event.WindowListener;
 @SuppressWarnings("serial")
 public class Window extends Frame implements WindowListener {
 	
+	public static void main(String[] args) {
+		new Window();
+
+	}
+	
 	public Window() {
 		this.setSize(700, 900);
 		
