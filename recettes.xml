@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="15.0.1" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Recette">
+    <void property="consigne">
+     <string>Préparer une poele</string>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="nomRecette">
+     <string>Crepes</string>
+    </void>
+    <void property="tags">
+     <array class="java.lang.String" length="1">
+      <void index="0">
+       <string>Sucré</string>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
