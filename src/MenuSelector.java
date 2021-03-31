@@ -1,5 +1,8 @@
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
+import java.awt.event.ItemEvent;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,6 +12,7 @@ import java.awt.Image;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -74,6 +78,29 @@ public class MenuSelector extends Panel {
 			menu_EAST_NORTH.setLayout(new BorderLayout());
 			
 			Panel menu_EAST_NORTH_EAST = new Panel();
+			Checkbox[] note = new Checkbox[5];
+
+			String[] descrip = {"1 étoile", "2 étoiles","3 étoiles", "4 étoiles", "5 étoiles"};
+
+
+				CheckboxGroup CG = new CheckboxGroup();
+				ItemListener itemlistener = new ItemListener() {
+					@Override
+					public void itemStateChanged(ItemEvent arg0) {
+						
+						// TODO Auto-generated method stub
+					}
+				};
+				
+				
+				for (int i=0; i<5; i++){
+					note[i] = new Checkbox(descrip[i], false, CG);
+					note[i].addItemListener(itemlistener);
+					add(note[i]);
+				}
+				
+				Modele.addObserver(this);
+			}
 			
 			
 			Panel menu_EAST_NORTH_WEST = new Panel();
@@ -87,7 +114,7 @@ public class MenuSelector extends Panel {
 						g.drawString("TITRE DE LA RECETTE", 10, 15);
 					}
 				};
-				menu_EAST_NORTH_WEST.add(recipe_title, BorderLayout.CENTER);
+			menu_EAST_NORTH_WEST.add(recipe_title, BorderLayout.CENTER);
 				// ..fin de l'affichage du titre de la recette
 			menu_EAST_NORTH.add(menu_EAST_NORTH_WEST, BorderLayout.CENTER);
 			
