@@ -1,3 +1,5 @@
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.BufferedInputStream;
@@ -8,8 +10,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Observable;
 
-public class Modele {
+public class Modele implements PropertyChangeListener {
 
 	ArrayList<Recette> recettes = new ArrayList<Recette>();
 	File fichier = new File("recettes.xml");
@@ -87,6 +90,14 @@ public class Modele {
 		System.out.println(m.toString());
 		m.supprimerRecette(r1);
 		m.saveRecettes();
+		
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		// TODO Auto-generated method stub
+		System.out.println(evt.getPropertyName() + "a change");
+		System.out.println(evt.getOldValue() + "is now" + evt.getNewValue() + "dans" + evt.getSource());
 		
 	}
 }
