@@ -34,6 +34,7 @@ public class MenuSelector extends Panel {
 		Panel NORTH = new Panel();
 		// debut contenu du haut de la page...
 		
+		
 		NORTH.setBackground(Color.CYAN);
 		
 		// ...fin contenu du haut de la page.
@@ -78,29 +79,12 @@ public class MenuSelector extends Panel {
 			menu_EAST_NORTH.setLayout(new BorderLayout());
 			
 			Panel menu_EAST_NORTH_EAST = new Panel();
-			Checkbox[] note = new Checkbox[5];
-
-			String[] descrip = {"1 étoile", "2 étoiles","3 étoiles", "4 étoiles", "5 étoiles"};
-
-
-				CheckboxGroup CG = new CheckboxGroup();
-				ItemListener itemlistener = new ItemListener() {
-					@Override
-					public void itemStateChanged(ItemEvent arg0) {
-						
-						// TODO Auto-generated method stub
-					}
-				};
+			
+			
+			
+			
 				
-				
-				for (int i=0; i<5; i++){
-					note[i] = new Checkbox(descrip[i], false, CG);
-					note[i].addItemListener(itemlistener);
-					add(note[i]);
-				}
-				
-				Modele.addObserver(this);
-			}
+			
 			
 			
 			Panel menu_EAST_NORTH_WEST = new Panel();
