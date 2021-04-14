@@ -25,7 +25,27 @@ public class AWT_Recipe extends Panel {
 	
 	public Color background_color = new Color(203, 198, 198);
 	
-	public AWT_Recipe() {
+	public Modele modele;
+	public Controleur controleur;
+	
+	public String title;
+	public String[] tags;
+	public String image; // peut etre une class speciale pour l'image
+	public String description;
+	
+	public Font title_font = new Font("Serif", Font.ITALIC, 36);
+	public Font tag_font = new Font("Serif", Font.ITALIC, 12);
+	public Font description_font = new Font("Serif", Font.PLAIN, 18);
+	
+	
+	public AWT_Recipe(Modele modele, Controleur controleur) {
+		this.modele = modele;
+		this.controleur = controleur;
+		
+		this.title = this.modele.recettes.get(0).nomRecette;
+		this.tags = this.modele.recettes.get(0).tags;
+		this.description = this.modele.recettes.get(0).consigne;
+		
 		this.setLayout(new BorderLayout());
 		
 		Panel head_panel = new Panel();
@@ -64,10 +84,9 @@ public class AWT_Recipe extends Panel {
 		head_text_up_title_panel.setLayout(new BorderLayout());
 		// debut du titre de la recette
 		
-		String title_string = "    TITLE";
+		String title_string = "    " + this.title;
 		Label head_text_up_title_textarea = new Label(title_string);
-		Font font01 = new Font("Serif", Font.ITALIC, 36);
-		head_text_up_title_textarea.setFont(font01);
+		head_text_up_title_textarea.setFont(this.title_font);
 		
 		head_text_up_title_panel.add(head_text_up_title_textarea, BorderLayout.CENTER);
 		// fin du titre de la recette
@@ -84,15 +103,12 @@ public class AWT_Recipe extends Panel {
 		
 		
 		Label label = new Label("TAGS :");
-		Font font02 = new Font("Serif", Font.ITALIC, 12);
-		label.setFont(font02);
+		label.setFont(this.tag_font);
 		head_text_down_panel.add(label);
 		
-		
-		String[] s02 = {"SUCRE", "SALE", "CHOCOLAT", "CHOCOLAT", "CHOCOLAT", "CHOCOLAT", "CHOCOLAT", "CHOCOLAT"};
-		for(String tag : s02) {
+		for(String tag : this.tags) {
 			Button button = new Button(tag);
-			button.setFont(font02);
+			button.setFont(this.tag_font);
 			head_text_down_panel.add(button);
 		}
 		
@@ -116,21 +132,10 @@ public class AWT_Recipe extends Panel {
 		// debut du corps..
 		
 		
-				
-		String s = "\n"
-				+ "Etape 1 : \n Faire fondre le chocolat \n\n"
-                + "Etape 2 : \n Ajouter le beurre en morceaux peu à peu et l'incorporer pour obtenir un creme bien lisse. \n\n"
-                + "Etape 3 : \n Mettre la farine et le sucre glace dans un saladier. Ajouter les oeufs entiers et mélanger jusqu'à obtention d'une émulsion homogène. \n\n"
-                + "Etape 4 : \n Verser le melange chocolat-beurre sur cette preparation. Melanger. \n\n"
-                + "Etape 5 : \n Beurrer et fariner 6 moules individuels ou un grand moule. \n\n"
-                + "Etape 6 : \n Verser la préparation et mettre à four chaud (200°C) - 10 min pour les petits gateaux, 15 pour le grand. \n\n"
-                + "Etape 7 : \n Servir tiede avec une creme anglaise (le centre doit être coulant) ou servir froid nappé de ganache au chocolat.";
-		
-		TextArea body_textarea = new TextArea(s, 3 , 100 , TextArea.SCROLLBARS_NONE); 
+		TextArea body_textarea = new TextArea(this.description, 3 , 100 , TextArea.SCROLLBARS_NONE); 
 		body_textarea.setBackground(this.background_color);
 		body_textarea.setEditable(false);
-		Font font03 = new Font("Serif", Font.PLAIN, 18);
-		body_textarea.setFont(font03);
+		body_textarea.setFont(this.description_font);
 		
 		// ..fin du corps
 		body_panel.add(body_textarea, BorderLayout.CENTER);

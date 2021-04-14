@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Label;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +28,12 @@ public class MenuSelector extends Panel {
 	public Button[] buttons = new Button[4];
 	public Image[] images = new Image[10];
 	
-	public MenuSelector() {
+	public Modele modele;
+	public Controleur controleur;
+	
+	public MenuSelector(Modele modele, Controleur controleur) {
+		this.modele = modele;
+		this.controleur = controleur;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -47,8 +53,8 @@ public class MenuSelector extends Panel {
 		// debut contenu du centre de la page...
 		
 
-		for(Panel menu : menus) {
-
+		for(int i = 0; i < this.menus.length; i++) {
+			Panel menu = menus[i];
 			
 			menu = new Panel();
 			menu.setLayout(new BorderLayout());
@@ -59,7 +65,7 @@ public class MenuSelector extends Panel {
 			Canvas menu_WEST_canvas = new Canvas() {
 				public void paint(Graphics g) {
 					try {
-						g.drawImage(ImageIO.read(new File("images/pdf.png")), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
+						g.drawImage(ImageIO.read(new File("images/soupe-legumes-du-potager.jpg")), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
 					} catch (IOException e) {
 						System.out.println("marche pas");
 					}
@@ -91,13 +97,8 @@ public class MenuSelector extends Panel {
 				menu_EAST_NORTH_WEST.setLayout(new BorderLayout());
 				// debut de l'affichage du titre de la recette..
 				
-				Canvas recipe_title = new Canvas() {
-					public void paint(Graphics g) {
-						g.setColor(Color.BLACK);
-						
-						g.drawString("TITRE DE LA RECETTE", 10, 15);
-					}
-				};
+				Label recipe_title = new Label("titre");
+				
 			menu_EAST_NORTH_WEST.add(recipe_title, BorderLayout.CENTER);
 				// ..fin de l'affichage du titre de la recette
 			menu_EAST_NORTH.add(menu_EAST_NORTH_WEST, BorderLayout.CENTER);

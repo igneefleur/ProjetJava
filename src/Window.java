@@ -5,16 +5,20 @@ import java.awt.event.WindowListener;
 @SuppressWarnings("serial")
 public class Window extends Frame implements WindowListener {
 	
-	public static void main(String[] args) {
-		new Window();
-
-	}
+	public Modele modele;
+	public Controleur controleur;
 	
-	public Window() {
+
+	public Window(Modele modele, Controleur controleur) {
+		this.modele = modele;
+		this.controleur = controleur;
+		
+		
 		this.setSize(700, 900);
 		
 		this.addWindowListener(this);
-		this.add(new MenuSelector());
+		//this.add(new AWT_Recipe(modele, controleur));
+		this.add(new MenuSelector(modele, controleur));
 		
 		this.setVisible(true);
 	}
