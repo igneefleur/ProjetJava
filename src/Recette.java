@@ -10,16 +10,19 @@ public class Recette implements Serializable {
 	String[] tags;
 	String consigne;
 	boolean fav;
+	String img;
 	
 	public Recette() {}
 	
-	public Recette(int u, String n, int d, String[] t, String c, boolean f) {
+	public Recette(int u, String n, int d, String[] t, String c, boolean f, String i) {
 		this.num = u;
 		this.nomRecette = n;
 		this.difficulte = d;
 		this.tags = t;
 		this.consigne = c;
 		this.fav = f;
+		this.img = i;
+		
 	}
 	
 	public String toString() {
@@ -73,5 +76,13 @@ public class Recette implements Serializable {
 		
 	public void setFav(boolean f) {
 		this.fav = f;
+	}
+	
+	public String getImg() {
+		return img;
+	}
+		
+	public void setImg(String i) {
+		this.img = i;
 	}
 }
