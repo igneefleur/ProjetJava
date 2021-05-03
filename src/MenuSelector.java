@@ -35,6 +35,8 @@ public class MenuSelector extends Panel {
 		this.modele = modele;
 		this.controleur = controleur;
 		
+		this.modele.change_page();
+		
 		this.setLayout(new BorderLayout());
 		
 		Panel NORTH = new Panel();
@@ -96,9 +98,12 @@ public class MenuSelector extends Panel {
 			Panel menu_EAST_NORTH_WEST = new Panel();
 				menu_EAST_NORTH_WEST.setLayout(new BorderLayout());
 				// debut de l'affichage du titre de la recette..
-				
-				Label recipe_title = new Label("titre");
-				
+				Label recipe_title;
+				try {
+					recipe_title = new Label(this.modele.current_recipes[i].getNomRecette());
+				} catch(NullPointerException e){
+					recipe_title = new Label("");
+				}
 			menu_EAST_NORTH_WEST.add(recipe_title, BorderLayout.CENTER);
 				// ..fin de l'affichage du titre de la recette
 			menu_EAST_NORTH.add(menu_EAST_NORTH_WEST, BorderLayout.CENTER);
