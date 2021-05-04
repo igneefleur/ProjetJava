@@ -15,24 +15,29 @@ import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 // changer le nom en RecipeSelector
 @SuppressWarnings("serial")
-public class MenuSelector extends Panel {
+public class MenuSelector extends JPanel {
 	
 	public Panel[] menus = new Panel[10];
 	public Button[] buttons = new Button[4];
 	public Image[] images = new Image[10];
 	
+	public Window window;
 	public Modele modele;
 	public Controleur controleur;
 	
-	public MenuSelector(Modele modele, Controleur controleur) {
+	public MenuSelector(Window w, Modele modele, Controleur controleur) {
+		this.window = w;
 		this.modele = modele;
 		this.controleur = controleur;
 		
@@ -60,9 +65,45 @@ public class MenuSelector extends Panel {
 
 		for(int i = 0; i < this.menus.length; i++) {
 			Panel menu = menus[i];
+			final int final_i = i;
+			
 			
 			menu = new Panel();
 			menu.setLayout(new BorderLayout());
+			
+			MouseListener mouse_listener = new MouseListener() {
+
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+					window.change_panel();
+				}
+
+				@Override
+				public void mousePressed(MouseEvent e) {
+					// TODO Auto-generated method stub
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+			};
 			
 			Panel menu_WEST = new Panel();
 			menu_WEST.setLayout(new BorderLayout());
@@ -84,6 +125,8 @@ public class MenuSelector extends Panel {
 
 				}
 			};
+			
+			menu_WEST_canvas.addMouseListener(mouse_listener);
 			menu_WEST.add(menu_WEST_canvas, BorderLayout.CENTER);
 			
 			menu_WEST.setPreferredSize(new Dimension(100, 0));
@@ -114,6 +157,8 @@ public class MenuSelector extends Panel {
 				} catch(NullPointerException e){
 					recipe_title = new Label("");
 				}
+			
+			recipe_title.addMouseListener(mouse_listener);
 			menu_EAST_NORTH_WEST.add(recipe_title, BorderLayout.CENTER);
 				// ..fin de l'affichage du titre de la recette
 			menu_EAST_NORTH.add(menu_EAST_NORTH_WEST, BorderLayout.CENTER);

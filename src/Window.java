@@ -1,12 +1,19 @@
+import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
+
 @SuppressWarnings("serial")
-public class Window extends Frame implements WindowListener {
+public class Window extends JFrame implements WindowListener {
 	
 	public Modele modele;
 	public Controleur controleur;
+	
+	public MenuSelector menu_selector;
+	public AWT_Recipe awt_recipe;
 	
 
 	public Window(Modele modele, Controleur controleur) {
@@ -17,10 +24,25 @@ public class Window extends Frame implements WindowListener {
 		this.setSize(700, 900);
 		
 		this.addWindowListener(this);
-		//this.add(new AWT_Recipe(modele, controleur));
-		this.add(new MenuSelector(modele, controleur));
+		
+		this.setLayout(new BorderLayout());
+		
+		this.menu_selector = new MenuSelector(this, modele, controleur);
+		this.awt_recipe = new AWT_Recipe(this.modele.recettes.get(0), this.modele, this.controleur);
+		
+		
+		this.add(menu_selector, BorderLayout.CENTER);
+
+		//this.add(awt_recipe, BorderLayout.CENTER);
 		
 		this.setVisible(true);
+	}
+	
+	public void change_panel() {
+		this.remove(menu_selector);
+		this.add(awt_recipe, BorderLayout.CENTER);
+		this.revalidate();
+		this.repaint();
 	}
 
 	@Override
