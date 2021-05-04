@@ -171,6 +171,22 @@ public class MenuSelector extends JPanel {
 			Panel menu_EAST_SOUTH = new Panel();
 			menu_EAST_SOUTH.setBackground(Color.pink);
 			
+			Label recipe_tags;
+			try {
+				for (int j = 0; j < (this.modele.current_recipes[i].getTags().length); j++) {
+					System.out.println(j);
+					System.out.println(this.modele.current_recipes[i].getTags());
+					try {
+						recipe_tags = new Label(this.modele.current_recipes[i].getTags()[j]);
+					} catch(NullPointerException e){
+						recipe_tags = new Label("");
+					}
+					menu_EAST_SOUTH.add(recipe_tags);
+				}
+			} catch(NullPointerException e) {
+				menu_EAST_SOUTH.add(new Label(""));
+			}
+				
 			menu_EAST.add(menu_EAST_SOUTH, BorderLayout.CENTER);
 			
 			menu.add(menu_EAST, BorderLayout.CENTER);
