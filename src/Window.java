@@ -28,7 +28,7 @@ public class Window extends JFrame implements WindowListener {
 		this.setLayout(new BorderLayout());
 		
 		this.menu_selector = new MenuSelector(this, modele, controleur);
-		this.awt_recipe = new AWT_Recipe(this.modele.recettes.get(0), this.modele, this.controleur);
+		this.awt_recipe = new AWT_Recipe(this.modele, this.controleur);
 		
 		
 		this.add(menu_selector, BorderLayout.CENTER);
