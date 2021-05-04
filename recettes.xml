@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="15.0.1" class="java.beans.XMLDecoder">
+<java version="15.0.2" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="Recette">
@@ -7,23 +7,29 @@
      <string>Etape 1 : 
  Faire fondre le chocolat 
 Etape 2 : 
- Ajouter le beurre en morceaux peu à peu et l&apos;incorporer pour obtenir un crème bien lisse. 
+ Ajouter le beurre en morceaux peu � peu et l&apos;incorporer pour obtenir un cr�me bien lisse. 
  Etape 3 : 
- Mettre la farine et le sucre glace dans un saladier. Ajouter les oeufs entiers et mélanger jusqu&apos;à obtention d&apos;une émulsion homogène. 
+ Mettre la farine et le sucre glace dans un saladier. Ajouter les oeufs entiers et m�langer jusqu&apos;� obtention d&apos;une �mulsion homog�ne. 
  Etape 4 : 
- Verser le mélange chocolat-beurre sur cette préparation. Mélanger. 
+ Verser le m�lange chocolat-beurre sur cette pr�paration. M�langer. 
  Etape 5 : 
  Beurrer et fariner 6 moules individuels ou un grand moule. 
  Etape 6 : 
- Verser la préparation et mettre à four chaud (200°C) - 10 min pour les petits gâteaux, 15 pour le grand. 
+ Verser la pr�paration et mettre � four chaud (200�C) - 10 min pour les petits g�teaux, 15 pour le grand. 
  Etape 7 : 
- Servir tiède avec une crème anglaise (le centre doit être coulant) ou servir froid nappé de ganache au chocolat.</string>
+ Servir ti�de avec une cr�me anglaise (le centre doit �tre coulant) ou servir froid napp� de ganache au chocolat.</string>
     </void>
     <void property="difficulte">
      <int>2</int>
     </void>
+    <void property="img">
+     <string>./images/moelleux_chocolat.jpg</string>
+    </void>
     <void property="nomRecette">
      <string>Moelleux au chocolat</string>
+    </void>
+    <void property="num">
+     <int>1</int>
     </void>
     <void property="tags">
      <array class="java.lang.String" length="2">
@@ -41,26 +47,193 @@ Etape 2 :
    <object class="Recette">
     <void property="consigne">
      <string>Etape 1 : 
- Dans un saladier, mélanger la farine, le sel et le sucre. 
+ Dans un saladier, m�langer la farine, le sel et le sucre. 
  Etape 2 : 
  Faire une Fontaine 
  Etape 3 : 
- Ajouter les oeufs et commencer à les incorporer à la farine avec une cuillère en bois, ajouter le beure fondu (tiédi) peu à peu et bien malaxer.
+ Ajouter les oeufs et commencer � les incorporer � la farine avec une cuill�re en bois, ajouter le beure fondu (ti�di) peu � peu et bien malaxer.
 Etape 4 : 
- Incorporer le lait (par petites quantités au début pour éviter les grumeaux), ajouter le parfum. 
+ Incorporer le lait (par petites quantit�s au d�but pour �viter les grumeaux), ajouter le parfum. 
  Etape 5 : 
- Faire cuire les crêpes dans une poêle chaude huilée.</string>
+ Faire cuire les cr�pes dans une po�le chaude huil�e.</string>
     </void>
     <void property="difficulte">
      <int>1</int>
     </void>
+    <void property="img">
+     <string>./images/crepes.jpg</string>
+    </void>
     <void property="nomRecette">
      <string>Crepes</string>
+    </void>
+    <void property="num">
+     <int>2</int>
     </void>
     <void property="tags">
      <array class="java.lang.String" length="1">
       <void index="0">
        <string>Sucre</string>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Recette">
+    <void property="consigne">
+     <string>Etape 1 
+ Prechauffer le four, etaler la pate dans le moule 
+ Etape 2 
+ la piquer avec une fourchette. Parsemer de copeaux de buerre 
+ Etape 3 : 
+ Faire rissoler les lardons � la poele 
+ Etape 4 : 
+ Battre les oeufs, la creme fraiche et le lait 
+Etape 5 : 
+ Ajouter les lardons 
+ Etape 6 : 
+ Assaisonner de sel, poivre et de muscade 
+ Etape 7 : 
+ verser sur la pate 
+ Etape 8 : 
+ Cuire 45 � 50min 
+ </string>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="img">
+     <string>./images/quiche.jpg</string>
+    </void>
+    <void property="nomRecette">
+     <string>Quiche</string>
+    </void>
+    <void property="num">
+     <int>3</int>
+    </void>
+    <void property="tags">
+     <array class="java.lang.String" length="1">
+      <void index="0">
+       <string>Sale</string>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Recette">
+    <void property="consigne">
+     <string>Etape 1 
+ Verser la farine dans un grand saladier et y faire un puits. 
+
+ Etape 2 
+ Verser la levure, le sel et le sucre dans un verre doseur. Ajouter 1/4 de litre d&apos;eau ti�de, bien m�langer. Couvrir d&apos;un film plastique et laisser reposer environ 10 minutes (jusqu&apos;� l&apos;apparition d&apos;une mousse brune bien epaisse en surface). 
+
+ Etape 3 : 
+ Verser le melange du verre doseur dans le saladier, melanger � la main. Puis quand la p�te n&apos;est plus collante p�trir environ 5 minutes � la main sur une surface farinee. Arroser d&apos;un peu d&apos;huile d&apos;olive, puis p�trir a nouveau environ 5 minutes. 
+
+ Etape 4 : 
+ Laisser reposer au moins 1 h sous un linge humide dans un endroit tiede (� c�t� d&apos;un radiateur, d&apos;une chemin�e ou d&apos;un poele en hiver). 
+
+ Etape 5 : 
+ Apr�s repos, p�trir quelques instants puis diviser la p�te en trois boules �gales (on peut en congeler). Etaler la p�te sur une surface farinee. Badigeonner la plaque d&apos;un peu d&apos;huile d&apos;olive avant d&apos;y appliquer la p�te. Cuisson 10 minutes � 220�C (thermostat 7-8).
+
+ </string>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="img">
+     <string>./images/pizza.jpg</string>
+    </void>
+    <void property="nomRecette">
+     <string>Pizza</string>
+    </void>
+    <void property="num">
+     <int>4</int>
+    </void>
+    <void property="tags">
+     <array class="java.lang.String" length="1">
+      <void index="0">
+       <string>Sale</string>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Recette">
+    <void property="consigne">
+     <string>Etape 1 
+ Melanger dans un saladier la creme, le gruyere, saler et poivrer a votre gout.  
+ Etape 2 : 
+ Prendre une tranche de pain de mie etaler dessus le melange creme/gruyere, poser dessus 1/2 tranche de jambon, poser dessus un tranche de pain de mie sur laquelle on a encore etale le meme melange.  
+Etape 3 : 
+ Avec ces proportions on doit pouvoir faire 12 croques.  
+Etape 4 : 
+ Mettre au four � mi-hauteur Th 7 pendant 20 mn.  
+</string>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="img">
+     <string>./images/croque_monsieur.jpg</string>
+    </void>
+    <void property="nomRecette">
+     <string>Croque Monsieur</string>
+    </void>
+    <void property="num">
+     <int>5</int>
+    </void>
+    <void property="tags">
+     <array class="java.lang.String" length="1">
+      <void index="0">
+       <string>Sale</string>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Recette">
+    <void property="consigne">
+     <string>Etape 1 
+ Travaillez le beurre mou avec les deux sucres jusqu&apos;� obtention d&apos;un m�lange homog�ne.
+ Eatpe 2 : 
+ Ajoutez les �ufs et m�langez bien. 
+ Etape3 : 
+ Joignez la farine tamis�e, le sel et la levure en poudre.
+Etape 4 : 
+ M�langez � nouveau. 
+ Etape 5 : 
+ Rajoutez les p�pites de chocolat et m�langez. 
+ Etape 6 : 
+ Recouvrez le plateau du four de papier cuisson ou sulfuris�, et � l&apos;aide de 2 cuill�res � caf�, disposez-y des petits tas de p�te de la valeur d&apos;une noix. 
+ Etape 7 : 
+ Veillez � bien les espacer car la p�te s&apos;�tale assez fort. 
+ Etape 8 : 
+ Enfournez et comptez une dizaine de minutes de cuisson (four pr�chauff� � 180�C). 
+Etape 9 : 
+ Laissez les cookies cuits sur une grille pour les laisser refroidir. 
+</string>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="img">
+     <string>./images/cookie.jpg</string>
+    </void>
+    <void property="nomRecette">
+     <string>Cookie</string>
+    </void>
+    <void property="num">
+     <int>6</int>
+    </void>
+    <void property="tags">
+     <array class="java.lang.String" length="1">
+      <void index="0">
+       <string>Sale</string>
       </void>
      </array>
     </void>

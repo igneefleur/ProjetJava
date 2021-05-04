@@ -5,7 +5,8 @@ public class Main {
 		// TODO Auto-generated method stub
 		Modele modele = new Modele();
 		
-		modele.loadRecettes();
+		new CreationRecipes(modele);
+		//modele.loadRecettes();
 		System.out.println(modele.recettes.size());
 		
 		Controleur controleur = new Controleur(modele);

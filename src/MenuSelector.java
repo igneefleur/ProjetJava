@@ -67,10 +67,17 @@ public class MenuSelector extends Panel {
 			Panel menu_WEST = new Panel();
 			menu_WEST.setLayout(new BorderLayout());
 			
+			final String link_image;
+			if (this.modele.current_recipes[i] != null) {
+				link_image = this.modele.current_recipes[i].img;
+			} else {
+				link_image = "";
+			}
+			
 			Canvas menu_WEST_canvas = new Canvas() {
 				public void paint(Graphics g) {
 					try {
-						g.drawImage(ImageIO.read(new File("images/soupe-legumes-du-potager.jpg")), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
+						g.drawImage(ImageIO.read(new File(link_image)), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
 					} catch (IOException e) {
 						System.out.println("marche pas");
 					}
