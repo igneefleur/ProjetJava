@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
@@ -40,11 +41,13 @@ public class MenuSelector extends Panel {
 		this.setLayout(new BorderLayout());
 		
 		Panel NORTH = new Panel();
+		NORTH.setLayout(new BorderLayout());
 		// debut contenu du haut de la page...
 		
 		
-		NORTH.setBackground(Color.CYAN);
+		TextArea search_bar = new TextArea("", 3 , 100 , TextArea.SCROLLBARS_NONE); 
 		
+		NORTH.add(search_bar, BorderLayout.CENTER);
 		// ...fin contenu du haut de la page.
 		NORTH.setPreferredSize(new Dimension(0, 50));
 		this.add(NORTH, BorderLayout.NORTH);
