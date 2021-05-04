@@ -58,8 +58,92 @@ public CreationRecipes(Modele m) {
 				+ "Etape 9 : \n Laissez les cookies cuits sur une grille pour les refroidir. \n"
 				,false,"./images/cookie.jpg"
 				);
+
+		Recette r7 = new Recette(7, "Tiramisu a la fraise", 2 , new String[]{"Sucre", "Dessert", "Bon Marche"},
+                ""
+                        + "Ingredients :\n\n"
+                        + "20cl d'amaretto\n"
+                        + "150g de sucre\n"
+                        + "32 biscuits a la cuillere\n"
+                        + "500g de fraises\n"
+                        + "6 oeufs\n"
+                        + "500g de fromage frais\n\n"
+                        
+		        + "Etape 1 :\n\nPour commencer, separer les blancs des jaunes d’œufs.\n\n "
+		        + "Etape 2 :\n\nDans les jaunes, verser 125 g de sucre et melanger pour faire blanchir les jaunes.\n\n"
+		        + "Etape 3 :\n\nY incorporer le fromage blanc et melanger.\n\n"
+		        + "Etape 4 :\n\nPrendre environ 100 g de fraises et les mixer avec 65 g de sucre pour preparer un coulis de fraise. \n\n"
+		        + "Etape 5 :\n\nVerser l'amaretto dans le coulis de fraise. \n\n"
+		        + "Etape 6 :\n\nMonter les blancs en neige bien fermes. \n\n"
+		        + "Etape 7 :\n\nVerser le melange œuf et fromage blanc doucement dans les blancs montes en neige, en tournant les blancs toujours dans le meme sens pour ne pas les casser. \n\n"
+		        + "Etape 8 :\n\n Verser un peu de coulis de fraise a la preparation pour lui donner une couleur un peu rosee.\n\n"
+		        + "Etape 9 :\n\nTremper les biscuits a la cuillere dans le coulis, et les disposer dans un plat assez haut sur tout le fond du plat.\n\n"
+		        + "Etape 10 :\n\nVerser le melange fromage frais et œuf dessus en couche pour recouvrir le tout, déposer la moitie des fraises sur la preparation.\n\n"
+		        + "Etape 11 :\n\nRecommencer l'operation avec les biscuits, le melange (s'il vous reste du coulis, l'incorporer au melange fromage et œuf) et remettre les restes des fraises sur le dessus.\n\n"
+		        + "Etape 12 :\n\nMettre le tiramisu 8h à 12h au frais avant degustation.\n\n"
+		        ,false,"./images/tiramisu.jpg"
+				);
+
+		Recette r8 = new Recette(8, "Mousse glacee cerise", 2 , new String[]{"Sucre", "Dessert", "Moyennement Cher", "Cerise", "Gourmand", "Froid"},
+                ""
+                		+ "Ingredients :\n\n"
+                		+ "Du citron\n"
+                		+ "300g de sucre glace\n"
+                		+ "500g de cerises fraiches\n"
+                		+ "500ml de creme fraiche\n"
+                		+ "\n\n"
+                		
+				+ "Etape 1 :\n\nMixer ensemble les cerises denoyautees, le jus de citron et le sucre jusqu'a l'obtention d'une creme liquide onctueuse.\n\n "
+				+ "Etape 2 :\n\nBattre la creme fraiche et incorporer le tout.\n\n"
+				+ "Etape 3 :\n\nMettre dans un moule choisi et decorer a loisir.\n\n"
+				+ "Etape 4 :\n\nMettre au congelateur pour environ 3 heures.\n\n"
+				,false,"./images/mousse_glace_cerise.jpg"
+				);
 		
-		ArrayList<Recette> r = new ArrayList<Recette>(Arrays.asList(r1,r2,r3,r4,r5,r6));
+		Recette r9 = new Recette(9, "Dolmas", 1 , new String[]{"Feuille", "Appetissant", "Joli", "Bon Marche", "Sain"},
+                ""
+                        + "Ingredients :\n\n"
+                        + "Du poivre\n"
+                        + "1 cuillere a soupe d'huile d'olive\n"
+                        + "1 cube de bouillon de volaille\n"
+                        + "1 bouquet\n"
+                        + "1 citron\n"
+                        + "30g de pignons de pin\n"
+                        + "30 feuilles de vignes\n"
+                        + "1 oignon\n"
+                        + "100g de riz rond\n"
+                        + "\n\n"
+                        
+                + "Etape 1 :\n\nBlanchissez a l’eau bouillante les feuilles pendant 6 minutes. Laissez refroidir et reservez. \n\n "
+                + "Etape 2 :\n\nPelez et emincez l’oignon pendant 30 sec / vit. 7 / 0 C.\n\n"
+                + "Etape 3 :\n\nFaites-le dorer avec l’huile d’olive et le riz pendant 4 min / vit. 1 / 110 C / marche a gauche.\n\n"
+                + "Etape 4 :\n\nVersez 40 cl d’eau, emiettez le cube de bouillon, puis pre-cuisez le riz pendant 8 min / vit. 1 / 110 C / marche a gauche en versant le riz apres ebullition.\n\n"
+                + "Etape 5 :\n\nEgouttez le riz, puis melangez-le avec les pignons de pin, le poivre, le persil cisele, le jus du citron. \n\n"
+                + "Etape 6 :\n\nDéposez une c. a cafe de farce au riz sur chaque feuille de vigne (face sans nervure). Rabattez les bords puis roulez bien serre. Disposez-les dans le panier vapeur. Badigeonnez d’huile et deposez dessus les demi-citrons. \n\n"
+                + "Etape 7 :\n\nVersez 50 cl d’eau dans la cuve de votre Monsieur Cuisine, installez le panier, lancez une cuisson vapeur pendant 35 min / vit. 1 / 130 C. Mettez au frais 1 heure.\n\n"
+                ,false,"./images/dolmas.jpg"
+                );
+		
+		Recette r10 = new Recette(10, "Confiture cerise", 2 , new String[]{"Sucre", "Confiture", "Moyennement Cher", "Cerise", "Gourmand", "Exquis", "Rhubarbe"},
+                ""
+                        + "Ingredients :\n\n"
+                        + "2kg de sucre cristallise\n"
+                        + "1kg de cerises noires\n"
+                        + "1kg de rhubarbe\n"
+                        + "5cl de kirsch\n"
+                        + "\n\n"
+                        
+                + "Etape 1 :\n\nPeler la rhubarbe et la couper en tronçons. La mettre dans une casserole avec 15cl d'eau. Porter a ebullition et faire cuire a feu moyen 20 min en remuant plusieurs fois. \n\n "
+                + "Etape 2 :\n\nVerser la rhubarbe et son jus de cuisson dans une bassine a confiture. Ajouter le sucre et faire cuire 15 min en ecumant et en remuant plusieurs fois. \n\n"
+                + "Etape 3 :\n\nPendant ce temps, equeuter et denoyauter les cerises. \n\n"
+                + "Etape 4 :\n\nPlonger les cerises dans la bassine a confiture, verser le kirsch et poursuivre la cuisson 10 min (la confiture est prete lorsque qu'une goutte deposee sur une assiette froide ne s'etale pas).\n\n"
+                + "Etape 5 :\n\nVerser dans les pots, visser les couvercles et retourner les pots. Laisser refroidir le contenu avant de remettre les pots sur leur base.\n\n"
+                ,false,"./images/confiture_cerise.jpg"
+                );
+		
+		
+		
+		ArrayList<Recette> r = new ArrayList<Recette>(Arrays.asList(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10));
 		for (int i=0; i<r.size(); i++) {
 			m.ajouterRecette(r.get(i));
 		}
