@@ -23,7 +23,7 @@ public class Modele implements PropertyChangeListener {
 		if (!this.recettes.contains(r)) {
 			this.recettes.add(r);
 		} else {
-			System.out.println("Recette d�j� existante");
+			System.out.println("Recette deja existante");
 		}
 	}
 	
@@ -46,7 +46,7 @@ public class Modele implements PropertyChangeListener {
 			encoder.flush();
 			
 		} catch (final java.io.IOException e1) {
-			throw new RuntimeException("Ecriture des donn�es impossible");
+			throw new RuntimeException("Ecriture des donnees impossible");
 		} finally {
 			if (encoder != null) encoder.close();
 		}
