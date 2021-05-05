@@ -90,6 +90,14 @@ public class AWT_Recipe extends Panel {
 		
 		Panel head_panel = new Panel();
 		head_panel.setLayout(new BorderLayout());
+		
+		Panel head_head = new Panel();
+		head_head.setBackground(background_color);
+		head_head.setLayout(new BorderLayout());
+		Button button_back = new Button("Retour");
+		button_back.addActionListener(controleur.button_retour);
+		head_head.add(button_back, BorderLayout.EAST);
+		head_panel.add(head_head, BorderLayout.NORTH);
 		// debut de la tete..
 		
 		Panel head_image_panel = new Panel();
@@ -133,7 +141,7 @@ public class AWT_Recipe extends Panel {
 		head_text_up_panel.add(head_text_up_title_panel, BorderLayout.CENTER);
 		
 		// ..fin du panneau contenant les textes en haut
-		head_text_up_panel.setBackground(Color.PINK);
+		head_text_up_panel.setBackground(background_color);
 		head_text_up_panel.setPreferredSize(new Dimension(0, 50));
 		head_text_panel.add(head_text_up_panel, BorderLayout.NORTH);
 		

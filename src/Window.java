@@ -45,6 +45,14 @@ public class Window extends JFrame implements WindowListener {
 		this.repaint();
 		this.awt_recipe.reload();
 	}
+	
+	public void to_menu_selector() {
+		this.remove(awt_recipe);
+		this.add(menu_selector, BorderLayout.CENTER);
+		this.revalidate();
+		this.repaint();
+		this.menu_selector.reload();
+	}
 
 	@Override
 	public void windowActivated(WindowEvent arg0) {}

@@ -60,6 +60,15 @@ public class Controleur implements ItemListener{
 		
 	};
 	
+	public ActionListener button_retour = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			window.to_menu_selector();
+		}
+		
+	};
+	
 	public Controleur (Modele mdl) {
 		this.modele = mdl;
 	}
