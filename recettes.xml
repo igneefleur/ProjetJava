@@ -544,5 +544,97 @@ Verser dans les pots, visser les couvercles et retourner les pots. Laisser refro
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="Recette">
+    <void property="consigne">
+     <string>Ingredients :
+
+20cl d&apos;amaretto
+150g de sucre
+32 biscuits a la cuillere
+400g de cerises
+6 oeufs
+500g de fromage frais
+
+Etape 1 :
+
+Pour commencer, separer les blancs des jaunes d’œufs.
+
+ Etape 2 :
+
+Dans les jaunes, verser 125 g de sucre et melanger pour faire blanchir les jaunes.
+
+Etape 3 :
+
+Y incorporer le fromage blanc et melanger.
+
+Etape 4 :
+
+Prendre environ 100 g de cerises et les mixer avec 65 g de sucre pour preparer un coulis de fraise. 
+
+Etape 5 :
+
+Verser l&apos;amaretto dans le coulis de cerises. 
+
+Etape 6 :
+
+Monter les blancs en neige bien fermes. 
+
+Etape 7 :
+
+Verser le melange œuf et fromage blanc doucement dans les blancs montes en neige, en tournant les blancs toujours dans le meme sens pour ne pas les casser. 
+
+Etape 8 :
+
+ Verser un peu de coulis de fraise a la preparation pour lui donner une couleur un peu rosee.
+
+Etape 9 :
+
+Tremper les biscuits a la cuillere dans le coulis, et les disposer dans un plat assez haut sur tout le fond du plat.
+
+Etape 10 :
+
+Verser le melange fromage frais et œuf dessus en couche pour recouvrir le tout, déposer la moitie des cerises sur la preparation.
+
+Etape 11 :
+
+Recommencer l&apos;operation avec les biscuits, le melange (s&apos;il vous reste du coulis, l&apos;incorporer au melange fromage et œuf) et remettre les restes des cerises sur le dessus.
+
+Etape 12 :
+
+Mettre le tiramisu 8h à 12h au frais avant degustation.
+
+</string>
+    </void>
+    <void property="difficulte">
+     <int>2</int>
+    </void>
+    <void property="img">
+     <string>./images/tiramisu.jpg</string>
+    </void>
+    <void property="nomRecette">
+     <string>Tiramisu a la cerise</string>
+    </void>
+    <void property="num">
+     <int>11</int>
+    </void>
+    <void property="tags">
+     <array class="java.lang.String" length="4">
+      <void index="0">
+       <string>Sucre</string>
+      </void>
+      <void index="1">
+       <string>Dessert</string>
+      </void>
+      <void index="2">
+       <string>Bon Marche</string>
+      </void>
+      <void index="3">
+       <string>Cerise</string>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

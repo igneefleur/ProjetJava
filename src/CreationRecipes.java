@@ -141,9 +141,33 @@ public CreationRecipes(Modele m) {
                 ,false,"./images/confiture_cerise.jpg"
                 );
 		
+		Recette r11 = new Recette(11, "Tiramisu a la cerise", 2 , new String[]{"Sucre", "Dessert", "Bon Marche", "Cerise"},
+                ""
+                        + "Ingredients :\n\n"
+                        + "20cl d'amaretto\n"
+                        + "150g de sucre\n"
+                        + "32 biscuits a la cuillere\n"
+                        + "400g de cerises\n"
+                        + "6 oeufs\n"
+                        + "500g de fromage frais\n\n"
+                        
+		        + "Etape 1 :\n\nPour commencer, separer les blancs des jaunes d’œufs.\n\n "
+		        + "Etape 2 :\n\nDans les jaunes, verser 125 g de sucre et melanger pour faire blanchir les jaunes.\n\n"
+		        + "Etape 3 :\n\nY incorporer le fromage blanc et melanger.\n\n"
+		        + "Etape 4 :\n\nPrendre environ 100 g de cerises et les mixer avec 65 g de sucre pour preparer un coulis de fraise. \n\n"
+		        + "Etape 5 :\n\nVerser l'amaretto dans le coulis de cerises. \n\n"
+		        + "Etape 6 :\n\nMonter les blancs en neige bien fermes. \n\n"
+		        + "Etape 7 :\n\nVerser le melange œuf et fromage blanc doucement dans les blancs montes en neige, en tournant les blancs toujours dans le meme sens pour ne pas les casser. \n\n"
+		        + "Etape 8 :\n\n Verser un peu de coulis de fraise a la preparation pour lui donner une couleur un peu rosee.\n\n"
+		        + "Etape 9 :\n\nTremper les biscuits a la cuillere dans le coulis, et les disposer dans un plat assez haut sur tout le fond du plat.\n\n"
+		        + "Etape 10 :\n\nVerser le melange fromage frais et œuf dessus en couche pour recouvrir le tout, déposer la moitie des cerises sur la preparation.\n\n"
+		        + "Etape 11 :\n\nRecommencer l'operation avec les biscuits, le melange (s'il vous reste du coulis, l'incorporer au melange fromage et œuf) et remettre les restes des cerises sur le dessus.\n\n"
+		        + "Etape 12 :\n\nMettre le tiramisu 8h à 12h au frais avant degustation.\n\n"
+		        ,false,"./images/tiramisu.jpg"
+				);
 		
 		
-		ArrayList<Recette> r = new ArrayList<Recette>(Arrays.asList(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10));
+		ArrayList<Recette> r = new ArrayList<Recette>(Arrays.asList(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11));
 		for (int i=0; i<r.size(); i++) {
 			m.ajouterRecette(r.get(i));
 		}

@@ -37,14 +37,54 @@ public class AWT_Recipe extends Panel {
 	public Font tag_font = new Font("Serif", Font.ITALIC, 12);
 	public Font description_font = new Font("Serif", Font.PLAIN, 18);
 	
+	public Canvas head_image_canvas;
+	public Label head_text_up_title_textarea;
+	public TextArea body_textarea;
+	public Panel head_text_down_panel;
+	
+	public void reload() {
+		this.title = this.modele.current_recipe.nomRecette;
+		this.tags = this.modele.current_recipe.tags;
+		this.description = this.modele.current_recipe.consigne;
+		this.image = this.modele.current_recipe.img;
+		
+		this.head_image_canvas.repaint();
+		this.head_text_up_title_textarea.setText(this.title);
+		this.body_textarea.setText(this.description);
+		
+		this.head_text_down_panel.removeAll();
+		
+		Label label = new Label("TAGS :");
+		label.setFont(this.tag_font);
+		this.head_text_down_panel.add(label);
+		
+		for(String tag : this.tags) {
+			Button button = new Button(tag);
+			button.setFont(this.tag_font);
+			this.head_text_down_panel.add(button);
+		}
+		
+		this.head_text_down_panel.revalidate();
+		this.head_text_down_panel.repaint();
+		
+	}
+	
 	
 	public AWT_Recipe(Modele modele, Controleur controleur) {
 		this.modele = modele;
 		this.controleur = controleur;
 		
-		this.title = this.modele.recettes.get(0).nomRecette;
-		this.tags = this.modele.recettes.get(0).tags;
-		this.description = this.modele.recettes.get(0).consigne;
+		try {
+			this.title = this.modele.current_recipe.nomRecette;
+			this.tags = this.modele.current_recipe.tags;
+			this.description = this.modele.current_recipe.consigne;
+			this.image = this.modele.current_recipe.img;
+		} catch(NullPointerException e) {
+			this.title = "";
+			this.tags = new String[0];
+			this.description = "";
+			this.image = "";
+		}
 		
 		this.setLayout(new BorderLayout());
 		
@@ -56,10 +96,10 @@ public class AWT_Recipe extends Panel {
 		head_image_panel.setLayout(new BorderLayout());
 		// debut du panneau contenant l'image
 		
-		Canvas head_image_canvas = new Canvas() {
+		this.head_image_canvas = new Canvas() {
 			public void paint(Graphics g) {
 				try {
-					g.drawImage(ImageIO.read(new File("images/soupe-legumes-du-potager.jpg")), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
+					g.drawImage(ImageIO.read(new File(image)), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
 				} catch (IOException e) {
 					System.out.println("la soupe marche pas");
 				}
@@ -85,7 +125,7 @@ public class AWT_Recipe extends Panel {
 		// debut du titre de la recette
 		
 		String title_string = "    " + this.title;
-		Label head_text_up_title_textarea = new Label(title_string);
+		this.head_text_up_title_textarea = new Label(title_string);
 		head_text_up_title_textarea.setFont(this.title_font);
 		
 		head_text_up_title_panel.add(head_text_up_title_textarea, BorderLayout.CENTER);
@@ -97,14 +137,14 @@ public class AWT_Recipe extends Panel {
 		head_text_up_panel.setPreferredSize(new Dimension(0, 50));
 		head_text_panel.add(head_text_up_panel, BorderLayout.NORTH);
 		
-		Panel head_text_down_panel = new Panel();
+		this.head_text_down_panel = new Panel();
 		//head_text_down_panel.setLayout(new BorderLayout());
 		// debut du panneau contenant les textes en bas..
 		
 		
 		Label label = new Label("TAGS :");
 		label.setFont(this.tag_font);
-		head_text_down_panel.add(label);
+		this.head_text_down_panel.add(label);
 		
 		for(String tag : this.tags) {
 			Button button = new Button(tag);
@@ -132,7 +172,7 @@ public class AWT_Recipe extends Panel {
 		// debut du corps..
 		
 		
-		TextArea body_textarea = new TextArea(this.description, 3 , 100 , TextArea.SCROLLBARS_NONE); 
+		this.body_textarea = new TextArea(this.description, 3 , 100 , TextArea.SCROLLBARS_NONE); 
 		body_textarea.setBackground(this.background_color);
 		body_textarea.setEditable(false);
 		body_textarea.setFont(this.description_font);

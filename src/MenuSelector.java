@@ -22,13 +22,15 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 
 // changer le nom en RecipeSelector
 @SuppressWarnings("serial")
 public class MenuSelector extends JPanel {
 	
-	public Panel[] menus = new Panel[10];
+	public JPanel[] menus = new JPanel[10];
 	public Button[] buttons = new Button[4];
 	public Image[] images = new Image[10];
 	
@@ -36,10 +38,34 @@ public class MenuSelector extends JPanel {
 	public Modele modele;
 	public Controleur controleur;
 	
+	public TextArea search_bar;
+	
+	Canvas menu_WEST_canvass[];
+	String link_images[];
+	TitledBorder title_borders[];
+	
+	public void reload() {
+		for(int i = 0; i < this.menus.length; i++) {
+			try {
+				link_images[i] = this.modele.current_recipes[i].img;
+				title_borders[i].setTitle(this.modele.current_recipes[i].nomRecette);;
+			} catch(NullPointerException e) {
+				link_images[i] = "";
+			}
+			menu_WEST_canvass[i].repaint();
+			
+			
+			
+			
+		}
+	}
+	
 	public MenuSelector(Window w, Modele modele, Controleur controleur) {
 		this.window = w;
 		this.modele = modele;
 		this.controleur = controleur;
+		
+		this.modele.rechercher("");
 		
 		this.modele.change_page();
 		
@@ -49,10 +75,13 @@ public class MenuSelector extends JPanel {
 		NORTH.setLayout(new BorderLayout());
 		// debut contenu du haut de la page...
 		
+		Button search_button = new Button("Rechercher");
+		search_button.addActionListener(controleur.search);
+		NORTH.add(search_button, BorderLayout.EAST);
 		
-		TextArea search_bar = new TextArea("", 3 , 100 , TextArea.SCROLLBARS_NONE); 
+		this.search_bar = new TextArea("", 3 , 100 , TextArea.SCROLLBARS_NONE); 
 		
-		NORTH.add(search_bar, BorderLayout.CENTER);
+		NORTH.add(this.search_bar, BorderLayout.CENTER);
 		// ...fin contenu du haut de la page.
 		NORTH.setPreferredSize(new Dimension(0, 50));
 		this.add(NORTH, BorderLayout.NORTH);
@@ -60,15 +89,21 @@ public class MenuSelector extends JPanel {
 		
 		Panel CENTER = new Panel();
 		CENTER.setLayout(new GridLayout(10, 1));
+		
 		// debut contenu du centre de la page...
 		
-
+		
+		this.menu_WEST_canvass = new Canvas[this.menus.length];
+		this.link_images = new String[this.menus.length];
+		this.title_borders = new TitledBorder[this.menus.length];
+		
+		
 		for(int i = 0; i < this.menus.length; i++) {
-			Panel menu = menus[i];
+			JPanel menu = menus[i];
 			final int final_i = i;
 			
 			
-			menu = new Panel();
+			menu = new JPanel();
 			menu.setLayout(new BorderLayout());
 			
 			MouseListener mouse_listener = new MouseListener() {
@@ -77,6 +112,7 @@ public class MenuSelector extends JPanel {
 				public void mouseClicked(MouseEvent e) {
 					// TODO Auto-generated method stub
 					
+					modele.current_recipe = modele.current_recipes[final_i];
 					window.change_panel();
 				}
 
@@ -105,26 +141,29 @@ public class MenuSelector extends JPanel {
 				
 			};
 			
-			Panel menu_WEST = new Panel();
+			JPanel menu_WEST = new JPanel();
 			menu_WEST.setLayout(new BorderLayout());
+			menu_WEST.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
 			
-			final String link_image;
+			String link_image;
 			if (this.modele.current_recipes[i] != null) {
 				link_image = this.modele.current_recipes[i].img;
 			} else {
 				link_image = "";
 			}
+			link_images[i] = link_image;
 			
 			Canvas menu_WEST_canvas = new Canvas() {
 				public void paint(Graphics g) {
 					try {
-						g.drawImage(ImageIO.read(new File(link_image)), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
+						g.drawImage(ImageIO.read(new File(link_images[final_i])), 0, 0, this.getWidth(), this.getHeight(), this); // affichage image
 					} catch (IOException e) {
 						System.out.println("marche pas");
 					}
 
 				}
 			};
+			this.menu_WEST_canvass[i] = menu_WEST_canvas;
 			
 			menu_WEST_canvas.addMouseListener(mouse_listener);
 			menu_WEST.add(menu_WEST_canvas, BorderLayout.CENTER);
@@ -133,8 +172,16 @@ public class MenuSelector extends JPanel {
 			menu.add(menu_WEST, BorderLayout.WEST);
 			
 			
-			Panel menu_EAST = new Panel();
+			JPanel menu_EAST = new JPanel();
 			menu_EAST.setLayout(new BorderLayout());
+			TitledBorder title_border;
+			try {
+				title_border = BorderFactory.createTitledBorder(this.modele.current_recipes[i].nomRecette);
+			} catch(NullPointerException e) {
+				title_border = BorderFactory.createTitledBorder("");
+			}
+			menu_EAST.setBorder(title_border);
+			title_borders[i] = title_border;
 			
 			Panel menu_EAST_NORTH = new Panel();
 			menu_EAST_NORTH.setLayout(new BorderLayout());
@@ -151,7 +198,7 @@ public class MenuSelector extends JPanel {
 			Panel menu_EAST_NORTH_WEST = new Panel();
 				menu_EAST_NORTH_WEST.setLayout(new BorderLayout());
 				// debut de l'affichage du titre de la recette..
-				Label recipe_title;
+				/* Label recipe_title;
 				try {
 					recipe_title = new Label(this.modele.current_recipes[i].getNomRecette());
 				} catch(NullPointerException e){
@@ -159,7 +206,9 @@ public class MenuSelector extends JPanel {
 				}
 			
 			recipe_title.addMouseListener(mouse_listener);
+			
 			menu_EAST_NORTH_WEST.add(recipe_title, BorderLayout.CENTER);
+			*/
 				// ..fin de l'affichage du titre de la recette
 			menu_EAST_NORTH.add(menu_EAST_NORTH_WEST, BorderLayout.CENTER);
 			
@@ -169,7 +218,6 @@ public class MenuSelector extends JPanel {
 			
 			
 			Panel menu_EAST_SOUTH = new Panel();
-			menu_EAST_SOUTH.setBackground(Color.pink);
 			
 			Label recipe_tags;
 			try {
@@ -186,6 +234,8 @@ public class MenuSelector extends JPanel {
 			} catch(NullPointerException e) {
 				menu_EAST_SOUTH.add(new Label(""));
 			}
+			
+			
 				
 			menu_EAST.add(menu_EAST_SOUTH, BorderLayout.CENTER);
 			
@@ -205,15 +255,13 @@ public class MenuSelector extends JPanel {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i] = new Button(names[i]);
 			final int index = i;
-			buttons[i].addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent arg0) {
-					System.out.println("ah, quelqu'un a appuye sur un bouton " + String.valueOf(index));
-					// ici l'event des boutons en bas de l'affichage
-				}
-			});
 			SOUTH.add(buttons[i]);
 		}
+		buttons[0].addActionListener(controleur.button_start);
+		buttons[1].addActionListener(controleur.button_previous);
+		buttons[2].addActionListener(controleur.button_next);
+		buttons[3].addActionListener(controleur.button_end);
+		
 		// ...fin contenu du bas de la page.
 		
 		SOUTH.setPreferredSize(new Dimension(0, 50));

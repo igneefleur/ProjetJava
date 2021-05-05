@@ -14,6 +14,10 @@ public class Recette implements Serializable {
 	
 	public Recette() {}
 	
+	public boolean string_is_in(String s) {
+		return nomRecette.contains(s) || consigne.contains(s);
+	}
+	
 	public Recette(int u, String n, int d, String[] t, String c, boolean f, String i) {
 		this.num = u;
 		this.nomRecette = n;

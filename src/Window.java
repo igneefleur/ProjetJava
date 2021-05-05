@@ -43,6 +43,7 @@ public class Window extends JFrame implements WindowListener {
 		this.add(awt_recipe, BorderLayout.CENTER);
 		this.revalidate();
 		this.repaint();
+		this.awt_recipe.reload();
 	}
 
 	@Override

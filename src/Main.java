@@ -10,7 +10,11 @@ public class Main {
 		System.out.println(modele.recettes.size());
 		
 		Controleur controleur = new Controleur(modele);
-		new Window(modele, controleur);
+		
+		Window vue =new Window(modele, controleur);
+		
+		modele.window = vue;
+		controleur.window = vue;
 	}
 
 }

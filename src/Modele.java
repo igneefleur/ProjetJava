@@ -15,9 +15,47 @@ import java.util.Observable;
 public class Modele implements PropertyChangeListener {
 
 	ArrayList<Recette> recettes = new ArrayList<Recette>();
+	
 	File fichier = new File("recettes.xml");
 	
 	Recette[] current_recipes = new Recette[10];
+	private int page = 0;
+	
+	public ArrayList<Recette> recettes_affichees = new ArrayList<Recette>();
+	
+	public Recette current_recipe;
+	
+	public Window window;
+	
+	public void rechercher(String s) {
+		
+		recettes_affichees = new ArrayList<Recette>();
+		
+		for(int i = 0; i < this.recettes.size(); i++) {
+			if(this.recettes.get(i).string_is_in(s)) {
+				recettes_affichees.add(this.recettes.get(i));
+			}
+		}
+		
+	}
+	
+	public int get_page() {
+		return this.page;
+	}
+	
+	public void set_page(int n) {
+		this.page = n;
+		for(int i = 0; i < this.current_recipes.length; i++) {
+			try {
+				this.current_recipes[i] = this.recettes_affichees.get(n * 10 + i);
+			} catch(Exception e) {
+				this.current_recipes[i] = null;
+			}
+		
+		}
+		
+		window.menu_selector.reload();
+	}
 	
 	public void ajouterRecette(Recette r) {
 		if (!this.recettes.contains(r)) {
@@ -86,7 +124,7 @@ public class Modele implements PropertyChangeListener {
 	public void change_page() {
 		for(int i = 0; i < 10; i++) {
 			try {
-				this.current_recipes[i] = this.recettes.get(i);
+				this.current_recipes[i] = this.recettes_affichees.get(i);
 			} catch(IndexOutOfBoundsException e) {
 				
 			}
