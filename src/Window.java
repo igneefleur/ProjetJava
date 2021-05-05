@@ -20,6 +20,7 @@ public class Window extends JFrame implements WindowListener {
 		this.modele = modele;
 		this.controleur = controleur;
 		
+		this.setTitle("La Cuisine Facile");
 		
 		this.setSize(700, 900);
 		
