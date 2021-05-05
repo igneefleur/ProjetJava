@@ -44,6 +44,7 @@ public class MenuSelector extends JPanel {
 	String link_images[];
 	TitledBorder title_borders[];
 	JPanel menu_EASTs[];
+	Label recipe_tagss[];
 	
 	public void reload() {
 		System.out.println(title_borders);
@@ -51,10 +52,24 @@ public class MenuSelector extends JPanel {
 			try {
 				link_images[i] = this.modele.current_recipes[i].img;
 				menu_EASTs[i].setBorder(BorderFactory.createTitledBorder(modele.current_recipes[i].nomRecette));
+				Label recipes_tags = recipe_tagss[i];
+				try {
+					for (int j = 0; j < (this.modele.current_recipes[i].getTags().length); j++) {
+						System.out.println(j);
+						System.out.println(this.modele.current_recipes[i].getTags());
+						try {
+							recipes_tags.setText(this.modele.current_recipes[i].getTags()[j]);
+						} catch(NullPointerException e){
+							recipes_tags.setText("");
+						}
+					}
+				} catch(NullPointerException e) {
+				}
 			} catch(NullPointerException e) {
 				link_images[i] = "";
 				menu_EASTs[i].setBorder(BorderFactory.createTitledBorder(""));
 			}
+			
 			menu_WEST_canvass[i].repaint();			
 		}
 	}
@@ -96,6 +111,7 @@ public class MenuSelector extends JPanel {
 		this.link_images = new String[this.menus.length];
 		this.title_borders = new TitledBorder[this.menus.length];
 		this.menu_EASTs = new JPanel[this.menus.length];
+		this.recipe_tagss = new Label[this.menus.length];
 		
 		
 		for(int i = 0; i < this.menus.length; i++) {
@@ -221,6 +237,7 @@ public class MenuSelector extends JPanel {
 			Panel menu_EAST_SOUTH = new Panel();
 			
 			Label recipe_tags;
+			recipe_tags = new Label("");
 			try {
 				for (int j = 0; j < (this.modele.current_recipes[i].getTags().length); j++) {
 					System.out.println(j);
@@ -235,6 +252,7 @@ public class MenuSelector extends JPanel {
 			} catch(NullPointerException e) {
 				menu_EAST_SOUTH.add(new Label(""));
 			}
+			recipe_tagss[i] = recipe_tags;
 			
 			
 				
