@@ -43,20 +43,19 @@ public class MenuSelector extends JPanel {
 	Canvas menu_WEST_canvass[];
 	String link_images[];
 	TitledBorder title_borders[];
+	JPanel menu_EASTs[];
 	
 	public void reload() {
+		System.out.println(title_borders);
 		for(int i = 0; i < this.menus.length; i++) {
 			try {
 				link_images[i] = this.modele.current_recipes[i].img;
-				title_borders[i].setTitle(this.modele.current_recipes[i].nomRecette);;
+				menu_EASTs[i].setBorder(BorderFactory.createTitledBorder(modele.current_recipes[i].nomRecette));
 			} catch(NullPointerException e) {
 				link_images[i] = "";
+				menu_EASTs[i].setBorder(BorderFactory.createTitledBorder(""));
 			}
-			menu_WEST_canvass[i].repaint();
-			
-			
-			
-			
+			menu_WEST_canvass[i].repaint();			
 		}
 	}
 	
@@ -96,6 +95,7 @@ public class MenuSelector extends JPanel {
 		this.menu_WEST_canvass = new Canvas[this.menus.length];
 		this.link_images = new String[this.menus.length];
 		this.title_borders = new TitledBorder[this.menus.length];
+		this.menu_EASTs = new JPanel[this.menus.length];
 		
 		
 		for(int i = 0; i < this.menus.length; i++) {
@@ -181,6 +181,7 @@ public class MenuSelector extends JPanel {
 				title_border = BorderFactory.createTitledBorder("");
 			}
 			menu_EAST.setBorder(title_border);
+			this.menu_EASTs[i] = menu_EAST;
 			title_borders[i] = title_border;
 			
 			Panel menu_EAST_NORTH = new Panel();
