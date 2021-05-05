@@ -391,7 +391,57 @@ public CreationRecipes(Modele m) {
 				,false,"./images/sirop_sureau.jpg"
 				);
 		
-		ArrayList<Recette> r = new ArrayList<Recette>(Arrays.asList(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17,r18,r19,r20));
+		Recette r21 = new Recette(20, "Choux Bruxelle", 2 , new String[]{"Pas Bon"},
+                ""
+                		+ "Ingredients :\n\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n\n"
+                		
+				+ "Etape 1 :\n\n\n\n "
+				+ "Etape 2 :\n\n\n\n"
+				+ "Etape 3 :\n\n\n\n"
+				+ "Etape 4 :\n\n\n\n"
+				+ "Etape 5 :\n\n\n\n"
+				+ "Etape 6 :\n\n\n\n"
+				+ "Etape 7 :\n\n\n\n"
+				+ "Etape 8 :\n\n\n\n"
+				+ "Etape 9 :\n\n\n\n"
+				+ "Etape 10 :\n\n\n\n"
+				+ "Etape 11 :\n\n\n\n"
+				+ "Etape 12 :\n\n\n\n"
+				,false,"./images/choux_bruxelle.jpg"
+				);
+		
+		Recette r22 = new Recette(20, "Wrap Italien", 2 , new String[]{"Wrap", "Mario"},
+                ""
+                		+ "Ingredients :\n\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n"
+                		+ "\n\n"
+                		
+				+ "Etape 1 :\n\n\n\n "
+				+ "Etape 2 :\n\n\n\n"
+				+ "Etape 3 :\n\n\n\n"
+				+ "Etape 4 :\n\n\n\n"
+				+ "Etape 5 :\n\n\n\n"
+				+ "Etape 6 :\n\n\n\n"
+				+ "Etape 7 :\n\n\n\n"
+				+ "Etape 8 :\n\n\n\n"
+				+ "Etape 9 :\n\n\n\n"
+				+ "Etape 10 :\n\n\n\n"
+				+ "Etape 11 :\n\n\n\n"
+				+ "Etape 12 :\n\n\n\n"
+				,false,"./images/wrap_italien.jpg"
+				);
+		
+		ArrayList<Recette> r = new ArrayList<Recette>(Arrays.asList(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17,r18,r19,r20,r21,r22));
 		for (int i=0; i<r.size(); i++) {
 			m.ajouterRecette(r.get(i));
 		}
